@@ -50,7 +50,13 @@ const Navbar = () => {
             <motion.a 
               key={link} 
               variants={itemVariants}
-              href="#" 
+              href={link === 'Services' ? '#services' : '#'} 
+              onClick={(e) => {
+                if (link === 'Services') {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="text-luxury-dim hover:text-white transition-colors text-[0.85rem] font-normal tracking-wide"
             >
               {link}
@@ -94,8 +100,14 @@ const Navbar = () => {
           {links.map((link) => (
             <a 
               key={link} 
-              href="#" 
-              onClick={() => setIsMenuOpen(false)}
+              href={link === 'Services' ? '#services' : '#'} 
+              onClick={(e) => {
+                setIsMenuOpen(false);
+                if (link === 'Services') {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="text-luxury-white text-2xl font-serif tracking-widest hover:text-luxury-tan transition-colors"
             >
               {link}
