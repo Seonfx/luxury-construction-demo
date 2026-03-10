@@ -95,7 +95,7 @@ export default function AboutSection() {
     >
       <div 
         ref={pinRef}
-        className="h-screen flex flex-col justify-center overflow-hidden"
+        className="h-screen flex flex-col justify-start pt-[12vh] md:pt-[15vh] overflow-hidden"
       >
         {/* Quote Section (Always Visible Entrance) */}
         <div ref={headingRef} className="px-6 md:px-20 z-10 relative pt-10">
