@@ -5,28 +5,32 @@ import { FullScreenScrollFX, FullScreenFXAPI } from "@/components/ui/full-screen
 
 const sections = [
   {
-    leftLabel: "Vision",
-    title: "Architecture & Design",
+    leftLabel: "Design",
+    title: "Bespoke Architectural Design",
+    description: "Award-winning architects crafting unique, timeless structures tailored to your vision and lifestyle.",
+    rightLabel: "Aesthetics",
+    background: "/architectural-drawaings.png",
+  },
+  {
+    leftLabel: "Quality",
+    title: "Premium Material Procurement",
+    description: "Sourcing the world's finest, rarest materials to ensure unparalleled quality and enduring beauty in every detail.",
+    rightLabel: "Sourcing",
+    background: "/luxury-material-service.png",
+  },
+  {
+    leftLabel: "Structure",
+    title: "Advanced Structural Engineering",
+    description: "State-of-the-art engineering practices guaranteeing uncompromising safety, longevity, and structural integrity.",
     rightLabel: "Precision",
-    background: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    background: "/strucutural-build.png",
   },
   {
-    leftLabel: "Elegance",
-    title: "Interior Masterpieces",
-    rightLabel: "Comfort",
-    background: "https://images.unsplash.com/photo-1600607687940-c52fc042939b?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    leftLabel: "Future",
-    title: "Sustainable Building",
+    leftLabel: "Ecology",
+    title: "Environmental & Landscape Integration",
+    description: "Harmonizing luxury living with nature through sustainable practices and breathtaking landscape design.",
     rightLabel: "Nature",
-    background: "https://images.unsplash.com/photo-1518005020251-58296b97b1bb?q=80&w=2021&auto=format&fit=crop",
-  },
-  {
-    leftLabel: "Control",
-    title: "Smart Home Tech",
-    rightLabel: "Innovation",
-    background: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop",
+    background: "/landscape-integration.png",
   },
 ];
 

@@ -21,6 +21,7 @@ type Section = {
   background: string;
   leftLabel?: ReactNode;
   title: string | ReactNode;
+  description?: string | ReactNode;
   rightLabel?: ReactNode;
   renderBackground?: (active: boolean, previous: boolean) => ReactNode;
 };
@@ -102,7 +103,6 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
 
       durations = { change: 0.7, snap: 800 },
       reduceMotion,
-      smoothScroll = false, // enable if you install Lenis
 
       bgTransition = "fade",
       parallaxAmount = 4,
@@ -114,7 +114,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
       colors = {
         text: "rgba(245,245,245,0.92)",
         overlay: "rgba(0,0,0,0.35)",
-        pageBg: "#ffffff",
+        pageBg: "#000000",
         stageBg: "#000000",
       },
 
@@ -134,6 +134,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
 
     const bgRefs = useRef<HTMLImageElement[]>([]);
     const wordRefs = useRef<HTMLSpanElement[][]>([]);
+    const descRefs = useRef<HTMLDivElement[]>([]);
 
     const leftTrackRef = useRef<HTMLDivElement | null>(null);
     const rightTrackRef = useRef<HTMLDivElement | null>(null);
@@ -247,6 +248,10 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           });
         });
       });
+      gsap.set(descRefs.current, {
+        opacity: (i) => (i === index ? 1 : 0),
+        y: (i) => (i === index ? 0 : 20),
+      });
 
       computePositions();
       measureAndCenterLists(index, false);
@@ -338,6 +343,17 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           stagger: down ? 0.05 : -0.05,
           ease: "power3.out",
         });
+      }
+
+      // animate description
+      const outDesc = descRefs.current[from];
+      const inDesc = descRefs.current[to];
+      if (outDesc) {
+        gsap.to(outDesc, { opacity: 0, y: down ? -20 : 20, duration: D * 0.6, ease: "power3.out" });
+      }
+      if (inDesc) {
+        gsap.set(inDesc, { opacity: 0, y: down ? 20 : -20 });
+        gsap.to(inDesc, { opacity: 1, y: 0, duration: D, delay: 0.1, ease: "power3.out" });
       }
 
       // backgrounds — FADE mode (requested)
@@ -549,6 +565,14 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
                               tempWordBucket.current = [];
                             }}
                           />
+                          {s.description && (
+                            <div 
+                              className="fx-featured-desc"
+                              ref={(el) => { if (el) descRefs.current[sIdx] = el; }}
+                            >
+                              {s.description}
+                            </div>
+                          )}
                         </div>
                       );
                     })}
@@ -604,7 +628,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
             width: 100%;
             overflow: hidden;
             background: var(--fx-page-bg);
-            color: #000;
+            color: var(--fx-text);
             font-family: var(--fx-font);
             text-transform: uppercase;
             letter-spacing: -0.02em;
@@ -672,7 +696,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
             opacity: 0.35;
             transition: opacity 0.3s ease, transform 0.3s ease;
             position: relative;
-            font-size: clamp(1rem, 2.4vw, 1.8rem);
+            font-size: clamp(0.9rem, 1.5vw, 1.3rem);
             user-select: none;
             cursor: pointer;
           }
@@ -697,7 +721,13 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           .fx-featured-title {
             margin: 0; color: var(--fx-text);
             font-weight: 900; letter-spacing: -0.01em;
-            font-size: clamp(2rem, 7.5vw, 6rem);
+            font-size: clamp(1.5rem, 5vw, 4rem);
+          }
+          .fx-featured-desc {
+            margin-top: 1.5rem; color: var(--fx-text); opacity: 0.8;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem); font-family: system-ui, sans-serif;
+            font-weight: 400; letter-spacing: 0; max-width: 600px; line-height: 1.5;
+            text-transform: none;
           }
           .fx-word-mask { display: inline-block; overflow: hidden; vertical-align: middle; }
           .fx-word { display: inline-block; vertical-align: middle; }
@@ -711,7 +741,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           .fx-progress-numbers { position: absolute; inset: auto 0 100% 0; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--fx-text); }
 
           .fx-end { height: 100vh; display: grid; place-items: center; }
-          .fx-fin { transform: rotate(90deg); color: #111; }
+          .fx-fin { transform: rotate(90deg); color: var(--fx-text); opacity: 0.5; }
 
           @media (max-width: 900px) {
             .fx-content {

@@ -6,9 +6,9 @@ import Services from "@/components/hero/Services";
 
 export default function Home() {
   return (
-    <main className="relative min-h-dvh flex flex-col bg-black overflow-x-hidden">
-      {/* Hero Section Container */}
-      <div className="relative min-h-dvh flex flex-col">
+    <main className="relative min-h-dvh flex flex-col bg-black">
+      {/* Hero Section Container - Sticky for Curtain Reveal Effect */}
+      <div className="sticky top-0 h-dvh flex flex-col z-0">
         {/* Background Video (Hero Only) */}
         <HeroVideo src="/luxury-home-hero-video.mp4" />
 
@@ -30,8 +30,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services Section */}
-      <Services />
+      {/* Services Section - Relative with higher z-index to slide over Hero */}
+      <div className="relative z-10 bg-black">
+        <Services />
+      </div>
     </main>
   );
 }
