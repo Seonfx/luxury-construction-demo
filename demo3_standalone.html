@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Custom Home Construction - RANTY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --text-white: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --accent-tan: #d2b48c;
+            --accent-gold: #c5a059;
+            --card-white: #ffffff;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --brand-color: #3b2e26;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            height: 100vh;
+            font-family: var(--font-sans);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .d3-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+
+        .d3-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            font-size: 1.1rem;
+        }
+
+        .d3-nav-links {
+            display: flex;
+            gap: 3.5rem;
+        }
+
+        .d3-nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.05em;
+        }
+
+        .d3-nav-links a:hover {
+            color: var(--text-white);
+        }
+
+        .d3-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .d3-lang {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        .d3-contact-btn {
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--text-white);
+            color: var(--text-white);
+            padding: 0.2rem 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+        }
+
+        /* Hero Section */
+        .d3-hero {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0 4rem;
+            overflow: hidden;
+        }
+
+        .d3-hero-main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            align-items: center;
+        }
+
+        .d3-hero-left {
+            padding-bottom: 12rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .d3-title {
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            line-height: 0.85;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: -0.02em;
+            color: var(--brand-color);
+            text-transform: uppercase;
+        }
+
+        .d3-subtitle {
+            color: var(--text-dim);
+            margin: 2.5rem 0;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            font-weight: 300;
+        }
+
+        .d3-start-btn {
+            background: var(--brand-color);
+            color: white;
+            border: none;
+            padding: 1.25rem 3.5rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .d3-start-btn:hover {
+            background: #524238;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.05);
+        }
+
+        /* Hero Right Box */
+        .d3-hero-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        /* Bottom Bar */
+        .d3-bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 4rem 2rem 4rem;
+        }
+
+        .d3-material-card {
+            background: #947a66;
+            padding: 1rem 2.5rem 1rem 4rem;
+            border-top-right-radius: 3rem;
+            width: 480px;
+            height: 220px;
+            margin-left: -4rem;
+            margin-bottom: -2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .d3-mc-text {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .d3-mc-text h3 {
+            margin: 0;
+            font-size: 1.75rem;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .d3-mc-text p {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin: 4rem 0 0 0;
+            line-height: 1.2;
+        }
+
+        .d3-mc-image {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            right: -20px;
+            bottom: -40px;
+            z-index: 1;
+        }
+
+        .d3-mc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .d3-stats-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .d3-avatars {
+            display: flex;
+        }
+
+        .d3-avatar {
+            width: 48px;
+            height: 48px;
+            background: #222;
+            border: 3px solid #000;
+            border-radius: 50%;
+            margin: 0 -8px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .d3-stat-text {
+            text-align: center;
+        }
+
+        .d3-stat-val {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            font-style: italic;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .d3-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        .d3-nature-card {
+            width: 350px;
+        }
+
+        .d3-nature-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.85rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--text-white);
+            letter-spacing: 0.05em;
+        }
+
+        .d3-learn-more {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            width: fit-content;
+            padding-bottom: 0.4rem;
+            letter-spacing: 0.1em;
+            transition: border-color 0.3s;
+            font-family: var(--font-sans);
+        }
+
+        .d3-learn-more:hover {
+            border-color: var(--text-white);
+        }
+
+        /* SVG Icons Styling */
+        .icon {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 1400px) {
+            .d3-title { font-size: 6rem; }
+            .d3-material-card { width: 400px; height: 180px; }
+            .d3-mc-image { width: 220px; height: 220px; }
+        }
+
+        @media (max-width: 1100px) {
+            .d3-hero-main { grid-template-columns: 1fr; gap: 4rem; padding-top: 4rem; }
+            .d3-hero-left { text-align: center; padding-bottom: 0; }
+            .d3-hero-right { justify-content: center; }
+            .d3-bottom-bar { flex-direction: column; align-items: center; gap: 4rem; padding-top: 4rem; position: relative; left: 0; right: 0; padding-bottom: 4rem; }
+            .d3-navbar { padding: 1.5rem 2rem; }
+            .d3-hero { padding: 0 2rem; height: auto; overflow: auto; }
+            body { overflow: auto; height: auto; }
+            .d3-nav-links { display: none; }
+            .d3-material-card { margin-left: 0; width: 100%; border-radius: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="d3-navbar">
+        <div class="d3-logo">
+            <svg class="icon"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>RANTY</span>
+        </div>
+        
+        <div class="d3-nav-links">
+            <a href="#">Services</a>
+            <a href="#">Homes</a>
+            <a href="#">About us</a>
+            <a href="#">Cases</a>
+        </div>
+
+        <div class="d3-nav-right">
+            <span class="d3-lang">ENG</span>
+            <button class="d3-contact-btn">CONTACT US</button>
+        </div>
+    </nav>
+
+    <main class="d3-hero">
+        <div class="d3-hero-main">
+            <div class="d3-hero-left">
+                <h1 class="d3-title">
+                    THE<br>PERFECT<br>HOME<sup style="font-size: 0.4em; vertical-align: super;">&reg;</sup>
+                </h1>
+                <p class="d3-subtitle">/ We craft custom homes /</p>
+                <button class="d3-start-btn">START</button>
+            </div>
+
+            <div class="d3-hero-right">
+                <!-- Blank space as requested -->
+            </div>
+        </div>
+
+        <div class="d3-bottom-bar">
+            <div class="d3-material-card">
+                <div class="d3-mc-text">
+                    <h3>We use best<br>materials!</h3>
+                    <p>Working with verified<br>suppliers.</p>
+                </div>
+                <div class="d3-mc-image">
+                    <img src="material.png" alt="Construction Materials">
+                </div>
+            </div>
+
+            <div class="d3-stats-container">
+                <div class="d3-avatars">
+                    <div class="d3-avatar" style="background-image: url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop)"></div>
+                    <div class="d3-avatar" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop)"></div>
+                </div>
+                <div class="d3-stat-text">
+                    <span class="d3-stat-val">12m<span style="font-size: 0.6em">+</span></span>
+                    <span class="d3-stat-label" style="text-transform: none; letter-spacing: normal;">Customers</span>
+                </div>
+            </div>
+
+            <div class="d3-nature-card">
+                <h3>WE CAN COMBINE<br>NATURE & HOME<br>COMFORT</h3>
+                <a href="#" class="d3-learn-more">
+                    LEARN MORE
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
