@@ -25,16 +25,30 @@ const HeroContent = () => {
         / We craft custom homes /
       </motion.p>
       
-      <motion.button 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-        whileHover={{ scale: 1.05, translateY: -2 }}
-        whileTap={{ scale: 0.98 }}
-        className="bg-luxury-brand text-white px-10 lg:px-14 py-4 lg:py-5 rounded-full text-[0.8rem] lg:text-[0.9rem] font-semibold tracking-widest transition-all hover:bg-[#524238] hover:shadow-[0_10px_20px_rgba(255,255,255,0.05)]"
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        className="flex flex-col sm:flex-row items-center gap-4 lg:gap-6"
       >
-        START
-      </motion.button>
+        <motion.button 
+          whileHover={{ scale: 1.05, translateY: -2 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => document.getElementById('contact-reveal')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-luxury-brand text-white px-10 lg:px-14 py-4 lg:py-5 rounded-full text-[0.8rem] lg:text-[0.9rem] font-semibold tracking-widest transition-all hover:bg-[#524238] hover:shadow-[0_10px_20px_rgba(255,255,255,0.05)] whitespace-nowrap"
+        >
+          START
+        </motion.button>
+
+        <motion.button 
+          whileHover={{ scale: 1.05, translateY: -2 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-transparent border border-white/20 text-white px-10 lg:px-14 py-4 lg:py-5 rounded-full text-[0.8rem] lg:text-[0.9rem] font-semibold tracking-widest transition-all hover:bg-white/5 backdrop-blur-sm whitespace-nowrap"
+        >
+          LEARN MORE
+        </motion.button>
+      </motion.div>
     </div>
   );
 };

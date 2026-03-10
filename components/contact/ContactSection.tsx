@@ -10,16 +10,16 @@ export default function ContactSection() {
   const [timeline, setTimeline] = React.useState<string | null>(null);
 
   return (
-    <section id="contact" className="h-screen w-full bg-[#050505] text-white flex flex-col justify-start pt-[18vh] px-6 md:px-20 overflow-y-auto no-scrollbar">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-7xl mx-auto w-full pb-32">
+    <section id="contact" className="h-fit lg:h-screen w-full bg-[#050505] text-white flex flex-col justify-start pt-32 md:pt-[18vh] px-6 md:px-20">
+      <div className="flex-none grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-7xl mx-auto w-full pb-32">
         {/* Left Side: Large Typography */}
-        <div className="space-y-8 sticky top-0">
+        <div className="space-y-8 lg:sticky lg:top-0 px-2 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] uppercase tracking-tighter">
+            <h2 className="text-4xl md:text-7xl lg:text-8xl font-light leading-[1.1] uppercase tracking-tighter">
               Tell us about <br />
               <span className="italic text-white/40 font-serif">your vision</span>
             </h2>
@@ -180,7 +180,7 @@ export default function ContactSection() {
       </div>
       
       {/* Footer Info */}
-      <div className="absolute bottom-10 left-6 md:left-20 flex flex-col md:flex-row gap-8 text-white/30 text-xs tracking-widest uppercase">
+      <div className="relative lg:absolute lg:bottom-10 left-6 md:left-20 flex flex-col md:flex-row gap-8 text-white/30 text-xs tracking-widest uppercase pb-12 lg:pb-0">
         <div className="flex flex-col gap-1">
           <span className="text-white/10 mb-1">Inquiries</span>
           <span>hello@ranty.com</span>

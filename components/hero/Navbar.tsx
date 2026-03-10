@@ -6,7 +6,7 @@ import { motion, Variants } from 'framer-motion';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const links = ['Services', 'Portfolio', 'About us', 'Contact'];
+  const links = ['Services', 'Portfolio', 'About us'];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
 
         <motion.div variants={itemVariants} className="flex items-center gap-4 lg:gap-10">
-          <span className="hidden sm:inline text-[0.7rem] lg:text-[0.8rem] text-luxury-dim font-semibold">ENG</span>
+
           <button 
             onClick={() => document.getElementById('contact-reveal')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-transparent border-none border-b border-white text-white pb-0.5 text-[0.7rem] lg:text-[0.8rem] font-semibold cursor-pointer tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap uppercase"
@@ -129,7 +129,7 @@ const Navbar = () => {
             );
           })}
           <div className="mt-8 flex flex-col items-center gap-6">
-            <span className="text-luxury-dim font-semibold tracking-widest">ENG</span>
+
             <button 
               onClick={() => {
                 setIsMenuOpen(false);
