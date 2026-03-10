@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 interface HeroVideoProps {
   src: string;
@@ -31,7 +32,12 @@ const HeroVideo: React.FC<HeroVideoProps> = ({ src }) => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="absolute inset-0 w-full h-full overflow-hidden z-0"
+    >
       <video
         ref={videoRef}
         muted
@@ -41,7 +47,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({ src }) => {
         <source src={src} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-linear-to-r from-black via-black/40 to-transparent pointer-events-none" />
-    </div>
+    </motion.div>
   );
 };
 
