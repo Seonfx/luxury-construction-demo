@@ -1037,3 +1037,5 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
 );
 
 FullScreenScrollFX.displayName = "FullScreenScrollFX";
+
+export default FullScreenScrollFX;

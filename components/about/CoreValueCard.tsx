@@ -12,7 +12,7 @@ interface CoreValueCardProps {
 
 export default function CoreValueCard({ title, description, imageSrc, index }: CoreValueCardProps) {
   return (
-    <div className="shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[70vh] relative group overflow-hidden rounded-2xl bg-zinc-900 border border-white/10 shadow-2xl mx-12">
+    <div className="shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[55vh] lg:h-[70vh] relative group overflow-hidden rounded-2xl bg-zinc-900 border border-white/10 shadow-2xl mr-8 md:mr-16">
       {/* Background Image with Hover Zoom */}
       <div className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110">
         <Image
@@ -40,11 +40,6 @@ export default function CoreValueCard({ title, description, imageSrc, index }: C
             {description}
           </p>
         </motion.div>
-      </div>
-
-      {/* Glass Boardy Decoration */}
-      <div className="absolute top-8 right-8 w-12 h-12 border border-white/20 rounded-full flex items-center justify-center backdrop-blur-md">
-        <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
       </div>
     </div>
   );
