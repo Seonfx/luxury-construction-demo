@@ -68,7 +68,7 @@ export default function Home() {
         This empty div provides the extra scroll height needed to "reveal" 
         the fixed section as the user scrolls to the end of the page.
       */}
-      <div className="h-screen w-full pointer-events-none bg-transparent" />
+      <div id="contact-reveal" className="h-screen w-full pointer-events-none bg-transparent" />
     </main>
   );
 }

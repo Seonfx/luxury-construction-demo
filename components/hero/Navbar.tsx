@@ -6,7 +6,7 @@ import { motion, Variants } from 'framer-motion';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const links = ['Services', 'Portfolio', 'About us', 'Cases'];
+  const links = ['Services', 'Portfolio', 'About us', 'Contact'];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
@@ -46,28 +46,36 @@ const Navbar = () => {
         </motion.div>
         
         <div className="hidden lg:flex gap-14 items-center">
-          {links.map((link) => (
-            <motion.a 
-              key={link} 
-              variants={itemVariants}
-              href={link === 'Services' ? '#services' : link === 'Portfolio' ? '#homes' : '#'} 
-              onClick={(e) => {
-                const targetId = link === 'Services' ? 'services' : link === 'Portfolio' ? 'homes' : null;
-                if (targetId) {
-                  e.preventDefault();
-                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-luxury-dim hover:text-white transition-colors text-[0.85rem] font-normal tracking-wide"
-            >
-              {link}
-            </motion.a>
-          ))}
+          {links.map((link) => {
+            const targetId = link === 'Services' ? 'services' : 
+                            link === 'Portfolio' ? 'portfolio' : 
+                            link === 'About us' ? 'about' : 
+                            link === 'Contact' ? 'contact-reveal' : null;
+            return (
+              <motion.a 
+                key={link} 
+                variants={itemVariants}
+                href={targetId ? `#${targetId}` : '#'} 
+                onClick={(e) => {
+                  if (targetId) {
+                    e.preventDefault();
+                    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-luxury-dim hover:text-white transition-colors text-[0.85rem] font-normal tracking-wide"
+              >
+                {link}
+              </motion.a>
+            );
+          })}
         </div>
 
         <motion.div variants={itemVariants} className="flex items-center gap-4 lg:gap-10">
           <span className="hidden sm:inline text-[0.7rem] lg:text-[0.8rem] text-luxury-dim font-semibold">ENG</span>
-          <button className="bg-transparent border-none border-b border-white text-white pb-0.5 text-[0.7rem] lg:text-[0.8rem] font-semibold cursor-pointer tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap uppercase">
+          <button 
+            onClick={() => document.getElementById('contact-reveal')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-transparent border-none border-b border-white text-white pb-0.5 text-[0.7rem] lg:text-[0.8rem] font-semibold cursor-pointer tracking-widest hover:opacity-80 transition-opacity whitespace-nowrap uppercase"
+          >
             Contact Us
           </button>
           
@@ -98,26 +106,37 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          {links.map((link) => (
-            <a 
-              key={link} 
-              href={link === 'Services' ? '#services' : link === 'Portfolio' ? '#homes' : '#'} 
-              onClick={(e) => {
-                setIsMenuOpen(false);
-                const targetId = link === 'Services' ? 'services' : link === 'Portfolio' ? 'homes' : null;
-                if (targetId) {
-                  e.preventDefault();
-                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-luxury-white text-2xl font-serif tracking-widest hover:text-luxury-tan transition-colors"
-            >
-              {link}
-            </a>
-          ))}
+          {links.map((link) => {
+            const targetId = link === 'Services' ? 'services' : 
+                            link === 'Portfolio' ? 'portfolio' : 
+                            link === 'About us' ? 'about' : 
+                            link === 'Contact' ? 'contact-reveal' : null;
+            return (
+              <a 
+                key={link} 
+                href={targetId ? `#${targetId}` : '#'} 
+                onClick={(e) => {
+                  setIsMenuOpen(false);
+                  if (targetId) {
+                    e.preventDefault();
+                    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="text-luxury-white text-2xl font-serif tracking-widest hover:text-luxury-tan transition-colors"
+              >
+                {link}
+              </a>
+            );
+          })}
           <div className="mt-8 flex flex-col items-center gap-6">
             <span className="text-luxury-dim font-semibold tracking-widest">ENG</span>
-            <button className="border-b border-white text-white pb-1 tracking-widest uppercase text-sm">
+            <button 
+              onClick={() => {
+                setIsMenuOpen(false);
+                document.getElementById('contact-reveal')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="border-b border-white text-white pb-1 tracking-widest uppercase text-sm"
+            >
               Contact Us
             </button>
           </div>

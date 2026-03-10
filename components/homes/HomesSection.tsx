@@ -4,7 +4,7 @@ import StickyScroll from '@/components/ui/sticky-scroll';
 
 export default function HomesSection() {
   return (
-    <section id="homes" className="relative z-10">
+    <section id="portfolio" className="relative z-10">
       <StickyScroll />
     </section>
   );

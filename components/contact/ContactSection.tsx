@@ -10,7 +10,7 @@ export default function ContactSection() {
   const [timeline, setTimeline] = React.useState<string | null>(null);
 
   return (
-    <section className="h-screen w-full bg-[#050505] text-white flex flex-col justify-start pt-[18vh] px-6 md:px-20 overflow-y-auto no-scrollbar">
+    <section id="contact" className="h-screen w-full bg-[#050505] text-white flex flex-col justify-start pt-[18vh] px-6 md:px-20 overflow-y-auto no-scrollbar">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-7xl mx-auto w-full pb-32">
         {/* Left Side: Large Typography */}
         <div className="space-y-8 sticky top-0">

@@ -90,6 +90,7 @@ export default function AboutSection() {
 
   return (
     <section 
+      id="about"
       ref={sectionRef} 
       className="relative bg-black"
     >
