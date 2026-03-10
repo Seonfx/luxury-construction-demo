@@ -31,7 +31,11 @@ export default function Home() {
       </div>
 
       {/* Services Section - Relative with higher z-index to slide over Hero */}
-      <div className="relative z-10 bg-black">
+      <div className="relative z-10 bg-black shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        {/* Glass Edge Transition */}
+        <div className="absolute -top-px left-0 right-0 h-24 bg-white/10 backdrop-blur-2xl border-t border-white/20 z-20 pointer-events-none" 
+             style={{ maskImage: 'linear-gradient(to bottom, black, transparent)' }} />
+        
         <Services />
       </div>
     </main>
