@@ -6,7 +6,7 @@ import { motion, Variants } from 'framer-motion';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const links = ['Services', 'Homes', 'About us', 'Cases'];
+  const links = ['Services', 'Portfolio', 'About us', 'Cases'];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: -20 },
@@ -50,11 +50,12 @@ const Navbar = () => {
             <motion.a 
               key={link} 
               variants={itemVariants}
-              href={link === 'Services' ? '#services' : '#'} 
+              href={link === 'Services' ? '#services' : link === 'Portfolio' ? '#homes' : '#'} 
               onClick={(e) => {
-                if (link === 'Services') {
+                const targetId = link === 'Services' ? 'services' : link === 'Portfolio' ? 'homes' : null;
+                if (targetId) {
                   e.preventDefault();
-                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
               className="text-luxury-dim hover:text-white transition-colors text-[0.85rem] font-normal tracking-wide"
@@ -100,12 +101,13 @@ const Navbar = () => {
           {links.map((link) => (
             <a 
               key={link} 
-              href={link === 'Services' ? '#services' : '#'} 
+              href={link === 'Services' ? '#services' : link === 'Portfolio' ? '#homes' : '#'} 
               onClick={(e) => {
                 setIsMenuOpen(false);
-                if (link === 'Services') {
+                const targetId = link === 'Services' ? 'services' : link === 'Portfolio' ? 'homes' : null;
+                if (targetId) {
                   e.preventDefault();
-                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
               className="text-luxury-white text-2xl font-serif tracking-widest hover:text-luxury-tan transition-colors"

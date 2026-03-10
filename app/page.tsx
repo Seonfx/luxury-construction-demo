@@ -3,6 +3,8 @@ import HeroContent from "@/components/hero/HeroContent";
 import HeroVideo from "@/components/hero/HeroVideo";
 import SocialProof from "@/components/hero/SocialProof";
 import Services from "@/components/hero/Services";
+import HomesSection from "@/components/homes/HomesSection";
+import AboutSection from "@/components/about/AboutSection";
 
 export default function Home() {
   return (
@@ -38,6 +40,12 @@ export default function Home() {
         
         <Services />
       </div>
+
+      {/* Homes Section */}
+      <HomesSection />
+
+      {/* About Us Section */}
+      <AboutSection />
     </main>
   );
 }

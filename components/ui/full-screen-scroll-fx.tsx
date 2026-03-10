@@ -731,11 +731,6 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
               </div>
             </div>
           </div>
-
-          {/* End spacer */}
-          <div className="fx-end">
-            <p className="fx-fin">fin</p>
-          </div>
         </div>
 
         <style jsx>{`
@@ -762,7 +757,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           }
 
           .fx-fixed-section {
-            height: ${Math.max(1, sections.length + 1)}00vh;
+            height: ${sections.length}00vh;
             position: relative;
           }
           .fx-fixed {
@@ -1012,17 +1007,6 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
             justify-content: space-between;
             font-size: 0.8rem;
             color: var(--fx-text);
-          }
-
-          .fx-end {
-            height: 100vh;
-            display: grid;
-            place-items: center;
-          }
-          .fx-fin {
-            transform: rotate(90deg);
-            color: var(--fx-text);
-            opacity: 0.5;
           }
 
           @media (max-width: 900px) {
