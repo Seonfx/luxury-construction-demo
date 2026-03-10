@@ -42,11 +42,11 @@ const HeroVideo: React.FC<HeroVideoProps> = ({ src }) => {
         ref={videoRef}
         muted
         playsInline
-        className="w-full h-full object-cover opacity-60 pointer-events-none"
+        className="w-full h-full object-cover opacity-80 pointer-events-none"
       >
         <source src={src} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/40 lg:bg-transparent lg:bg-linear-to-r lg:from-black lg:via-black/40 lg:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-black/30 lg:bg-transparent lg:bg-linear-to-r lg:from-black lg:via-black/30 lg:to-transparent pointer-events-none" />
     </motion.div>
   );
 };
