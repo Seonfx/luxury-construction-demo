@@ -1,7 +1,7 @@
 import Navbar from "@/components/hero/Navbar";
 import HeroContent from "@/components/hero/HeroContent";
-import BottomBar from "@/components/hero/BottomBar";
 import HeroVideo from "@/components/hero/HeroVideo";
+import SocialProof from "@/components/hero/SocialProof";
 
 export default function Home() {
   return (
@@ -22,8 +22,8 @@ export default function Home() {
           <div className="hidden lg:block h-full" />
         </div>
 
-        {/* Bottom Bar */}
-        <BottomBar />
+        {/* Bottom Left Social Proof */}
+        <SocialProof />
       </div>
     </main>
   );
