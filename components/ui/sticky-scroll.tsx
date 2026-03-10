@@ -54,7 +54,7 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
               </figure>
               <figure className='w-full'>
                 <img
-                  src='https://images.unsplash.com/photo-1600607687940-c52af096999a?w=800&auto=format&fit=crop'
+                  src='/portfolio/modern-architecture-dusk.png'
                   alt='Modern Architecture at Dusk'
                   className='transition-all duration-300 w-full h-72 align-bottom object-cover rounded-md'
                 />
@@ -125,7 +125,7 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
               </figure>
               <figure className='w-full'>
                 <img
-                  src='https://images.unsplash.com/photo-1600607688960-e0d5da8a995c?w=800&auto=format&fit=crop'
+                  src='/portfolio/luxury-terrace.png'
                   alt='Luxury Terrace'
                   className='transition-all duration-300 w-full h-72 align-bottom object-cover rounded-md'
                 />
